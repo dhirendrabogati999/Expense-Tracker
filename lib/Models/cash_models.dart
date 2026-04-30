@@ -13,11 +13,14 @@ class cashModel extends HiveObject{
   DateTime date;
   @HiveField(3)
   String category; // "income" or "expense"
+  @HiveField(4)
+  String? specificCategory; // "FOOD", "SHOP", "TRAVEL", "BILLS", etc.
 
   cashModel({
     required this.title,
     required this.amount,
     required this.date,
     required this.category,
+    this.specificCategory,
   });
 }

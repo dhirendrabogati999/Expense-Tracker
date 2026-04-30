@@ -1,5 +1,5 @@
 import 'package:cash_flow/Models/cash_models.dart';
-import 'package:cash_flow/Pages/analyticspage.dart';
+import 'package:cash_flow/Pages/default_analyticspage.dart';
 import 'package:cash_flow/Pages/homepage.dart';
 import 'package:cash_flow/Providers/transaction_provider.dart';
 import 'package:flutter/material.dart';

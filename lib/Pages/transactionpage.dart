@@ -16,6 +16,7 @@ class _TransactionPageState extends State<TransactionPage> {
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _titleController = TextEditingController();
   bool isExpense = true;
+  String? selectedCategory;
   @override
   Widget build(BuildContext context){
     return SafeArea(
@@ -186,68 +187,92 @@ class _TransactionPageState extends State<TransactionPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    height: 100,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.food_bank, size: 40, color: Colors.grey,),
-                        Text('FOOD', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    height: 100,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.shop_2, size: 40, color: Colors.grey,),
-                        Text('SHOP', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      setState(() => selectedCategory = 'FOOD');
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      height: 100,
+                      width: 80,
+                      decoration: BoxDecoration(
+                        color: selectedCategory == 'FOOD' ? Colors.blue : Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: selectedCategory == 'FOOD' ? Border.all(color: Colors.blue, width: 2) : null,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.food_bank, size: 40, color: selectedCategory == 'FOOD' ? Colors.white : Colors.grey,),
+                          Text('FOOD', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: selectedCategory == 'FOOD' ? Colors.white : Colors.black),),
+                        ],
+                      ),
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    height: 100,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.card_travel_outlined, size: 40, color: Colors.grey,),
-                        Text('TRAVEL', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      setState(() => selectedCategory = 'SHOP');
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      height: 100,
+                      width: 80,
+                      decoration: BoxDecoration(
+                        color: selectedCategory == 'SHOP' ? Colors.blue : Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: selectedCategory == 'SHOP' ? Border.all(color: Colors.blue, width: 2) : null,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.shop_2, size: 40, color: selectedCategory == 'SHOP' ? Colors.white : Colors.grey,),
+                          Text('SHOP', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: selectedCategory == 'SHOP' ? Colors.white : Colors.black),),
+                        ],
+                      ),
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    height: 100,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() => selectedCategory = 'TRAVEL');
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      height: 100,
+                      width: 80,
+                      decoration: BoxDecoration(
+                        color: selectedCategory == 'TRAVEL' ? Colors.blue : Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: selectedCategory == 'TRAVEL' ? Border.all(color: Colors.blue, width: 2) : null,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.card_travel_outlined, size: 40, color: selectedCategory == 'TRAVEL' ? Colors.white : Colors.grey,),
+                          Text('TRAVEL', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: selectedCategory == 'TRAVEL' ? Colors.white : Colors.black),),
+                        ],
+                      ),
                     ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.local_atm, size: 40, color: Colors.grey,),
-                        Text('BILLS', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-                      ],
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() => selectedCategory = 'BILLS');
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      height: 100,
+                      width: 80,
+                      decoration: BoxDecoration(
+                        color: selectedCategory == 'BILLS' ? Colors.blue : Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: selectedCategory == 'BILLS' ? Border.all(color: Colors.blue, width: 2) : null,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.local_atm, size: 40, color: selectedCategory == 'BILLS' ? Colors.white : Colors.grey,),
+                          Text('BILLS', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: selectedCategory == 'BILLS' ? Colors.white : Colors.black),),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -278,6 +303,7 @@ class _TransactionPageState extends State<TransactionPage> {
                         amount: amount,
                         date: DateTime.now(),
                         category: isExpense ? 'expense' : 'income',
+                        specificCategory: selectedCategory,
                       );
                     transactionProvider.addTransaction(newTransaction);
                      widget.onTabChange(0); // Navigate back to HomePage

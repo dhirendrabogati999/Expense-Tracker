@@ -170,7 +170,7 @@ class HomePage extends StatelessWidget{
                                 children: [
                                   Text('${transactionProvider.transactions[index].date.hour.toString().padLeft(2, '0')}:${transactionProvider.transactions[index].date.minute.toString().padLeft(2, '0')}', style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.bold),),
                                   SizedBox(width: 5),
-                                  Text(transactionProvider.transactions[index].category, style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.bold),),
+                                  Text(transactionProvider.transactions[index].specificCategory ?? transactionProvider.transactions[index].category, style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.bold),),
                                 ],
                               ),         
                             ],

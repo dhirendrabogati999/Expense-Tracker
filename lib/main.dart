@@ -4,14 +4,13 @@ import 'package:cash_flow/Pages/homepage.dart';
 import 'package:cash_flow/Providers/transaction_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 //Main function
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
-  var directory = await getApplicationDocumentsDirectory();
-  Hive.init(directory.path);
+
+   await Hive.initFlutter();
 
 Hive.registerAdapter(cashModelAdapter()); // IMPORTANT
 
